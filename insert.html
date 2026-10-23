@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Student</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f0fe;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .subject-entry {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 16px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ab8;
+        }
+
+        .add-subject-btn {
+            background-color: #28a745;
+            margin-top: 10px;
+        }
+
+        .add-subject-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+
+    <script>
+        function addSubjectFields() {
+            const container = document.getElementById('subject-container');
+            const div = document.createElement('div');
+            div.classList.add('subject-entry');
+
+            div.innerHTML = `
+                <label>Course ID:</label>
+                <input type="text" name="course_id[]" required>
+
+                <label>Subject Name:</label>
+                <input type="text" name="subject_name[]" required>
+
+                <label>Internal Mark:</label>
+                <input type="number" name="internal_mark[]" min="0" max="20" required>
+
+                <label>Final Mark:</label>
+                <input type="number" name="final_mark[]" min="0" max="80" required>
+            `;
+
+            container.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Insert Student Details</h2>
+        <form action="submit.php" method="POST">
+
+            <label>Student ID:</label>
+            <input type="text" name="student_id" required>
+
+            <label>First Name:</label>
+            <input type="text" name="first_name" required>
+
+            <label>Last Name:</label>
+            <input type="text" name="last_name" required>
+
+            <label>Class:</label>
+            <input type="text" name="class" required>
+
+            <label>Section:</label>
+            <input type="text" name="section" required>
+
+            <label>Date of Birth:</label>
+            <input type="date" name="dob" required>
+
+            <label>Parent Phone Number:</label>
+            <input type="text" name="parent_phone" required pattern="\d{10}">
+
+            <label>Address:</label>
+            <input type="text" name="address" required>
+
+            <h3>Subjects</h3>
+            <div id="subject-container"></div>
+            <button type="button" class="add-subject-btn" onclick="addSubjectFields()">Add Subject</button>
+
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>  
+
+</body>
+</html>

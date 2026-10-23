@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .dashboard-container {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.18);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      margin-bottom: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #f0f0f0;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .button {
+      background: #ffffff;
+      color: #1e3c72;
+      font-weight: 600;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      width: 100%;
+    }
+
+    .button:hover {
+      background: #f9f9f9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    form {
+      margin: 0;
+    }
+
+    @media (max-width: 500px) {
+      .dashboard-container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .card h3 {
+        font-size: 1.4rem;
+      }
+
+      .button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-container">
+    <h1>Welcome, Admin!</h1>
+    <p>Manage your students and control your dashboard easily.</p>
+
+    <div class="card">
+      <h3>Student Management</h3>
+      <p>Insert new students or view existing student details.</p>
+    </div>
+
+    <div class="btn-container">
+      <form action="insert.html" method="POST">
+        <button class="button" type="submit">Insert Student</button>
+      </form>
+
+      <form action="view.php" method="GET">
+        <button class="button" type="submit">View Student Details</button>
+      </form>
+    </div>
+
+    <div class="card" style="margin-top: 30px;">
+      <h3>Admin Controls</h3>
+      <p>Log out securely when you're done.</p>
+    </div>
+
+    <div class="btn-container">
+      <form action="logout.php" method="POST">
+        <button class="button" type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
